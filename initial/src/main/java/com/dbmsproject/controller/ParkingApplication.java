@@ -1,4 +1,4 @@
-package com.dbmsproject.springboot;
+package com.dbmsproject.controller;
 
 import java.util.Arrays;
 
