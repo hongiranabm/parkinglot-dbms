@@ -8,7 +8,7 @@ public class ParkingController {
 
 	@GetMapping("/")
 	public String index() {
-		return "...";
+		return "HI HONGI";
 	}
 
 }
