@@ -1,6 +1,7 @@
 package com.dbmsproject.dao;
 
-import org.springframework.stereotype.Indexed;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class SlotTypeDao {
