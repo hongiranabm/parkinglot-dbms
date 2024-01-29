@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.dbmsproject.dao.LoginDao;
 
-public interface LocationRepository extends CrudRepository <LoginDao, Integer> {
+public interface LoginRepository extends CrudRepository <LoginDao, Integer> {
     
 }
