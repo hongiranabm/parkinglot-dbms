@@ -1,18 +1,25 @@
 package com.dbmsproject.dao;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class FaresDao {
-    @Id
-    private int locCode;
-    private int slotTypeId;
+    
+    @ManyToOne
+    @JoinColumn(name = "locCode")
+    private LocationDao locationDao;
+
+    @ManyToOne
+    @JoinColumn(name = "slotTypeId")
+    private SlotTypeDao slotTypeDao;
+
     private int amount;    
 
-    public FaresDao(int locCode,int slotTypeId,int amount){
-        this.locCode = locCode;
-        this.slotTypeId = slotTypeId;
+    public FaresDao(LocationDao locationDao,SlotTypeDao slotTypeDao,int amount){
+        this.locationDao = locationDao;
+        this.slotTypeDao = slotTypeDao;
         this.amount = amount;
     }
 
@@ -20,20 +27,20 @@ public class FaresDao {
 
     }
 
-    public int getLocCode() {
-        return locCode;
+    public LocationDao getLocCode() {
+        return locationDao;
     }
 
-    public void setLocCode(int locCode) {
-        this.locCode = locCode;
+    public void setLocCode(LocationDao locationDao) {
+        this.locationDao = locationDao;
     }
 
-    public int getSlotTypeId() {
-        return slotTypeId;
+    public SlotTypeDao getSlotTypeId() {
+        return slotTypeDao;
     }
 
-    public void setSlotTypeId(int slotTypeId) {
-        this.slotTypeId = slotTypeId;
+    public void setSlotTypeId(SlotTypeDao slotTypeDao) {
+        this.slotTypeDao = slotTypeDao;
     }
 
     public int getAmount() {

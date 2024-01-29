@@ -11,6 +11,10 @@ public class SlotTypeDao {
     
     private int vehType;
 
+    public SlotTypeDao(int slotTypeId) {
+        this.slotTypeId = slotTypeId;
+    }
+
     public SlotTypeDao(int slotTypeId, int vehType) {
         this.slotTypeId = slotTypeId;
         this.vehType = vehType;

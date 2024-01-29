@@ -20,6 +20,9 @@ public class LocationDao {
     public LocationDao(){
 
     }
+    public LocationDao(int locCode) {
+        this.locCode = locCode;
+    }
     public int getLocCode() {
         return locCode;
     }
