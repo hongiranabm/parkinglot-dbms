@@ -8,6 +8,7 @@ public class SlotTypeDao {
     
     @Id
     private int slotTypeId;
+    
     private int vehType;
 
     public SlotTypeDao(int slotTypeId, int vehType) {

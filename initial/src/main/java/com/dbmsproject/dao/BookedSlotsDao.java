@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 public class BookedSlotsDao {
     @Id
     private int bookingId;
+    
     private int locCode;
     private int slotTypeId;
     private int phone;

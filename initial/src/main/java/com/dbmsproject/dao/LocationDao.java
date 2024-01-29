@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 public class LocationDao {
     @Id
     private int locCode;
+    
     private String area;
     private int noOfFloors;
 

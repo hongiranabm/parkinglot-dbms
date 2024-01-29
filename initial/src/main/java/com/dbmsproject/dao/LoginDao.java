@@ -5,8 +5,8 @@ import jakarta.persistence.Id;
 @Entity
 public class LoginDao {
     @Id
-    private String name;
     private int phone;
+    private String name;
     private String password;
 
     public LoginDao(String name,int phone, String password){
