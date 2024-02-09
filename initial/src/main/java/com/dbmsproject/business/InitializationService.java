@@ -42,15 +42,15 @@ public class InitializationService {
     }
 
     private void initFares(){
-        faresRepository.save(new FaresDao(new LocationDao(1), new SlotTypeDao(1), 30));
-        faresRepository.save(new FaresDao(new LocationDao(1), new SlotTypeDao(2), 50));
-        faresRepository.save(new FaresDao(new LocationDao(2), new SlotTypeDao(1), 20));
-        faresRepository.save(new FaresDao(new LocationDao(2), new SlotTypeDao(2), 40));
-        faresRepository.save(new FaresDao(new LocationDao(3), new SlotTypeDao(1), 40));
-        faresRepository.save(new FaresDao(new LocationDao(3), new SlotTypeDao(2), 70));
-        faresRepository.save(new FaresDao(new LocationDao(4), new SlotTypeDao(1), 20));
-        faresRepository.save(new FaresDao(new LocationDao(4), new SlotTypeDao(2), 40));
-        faresRepository.save(new FaresDao(new LocationDao(5), new SlotTypeDao(1), 30));
-        faresRepository.save(new FaresDao(new LocationDao(5), new SlotTypeDao(2), 60));
+        faresRepository.save(new FaresDao(1, new LocationDao(1), new SlotTypeDao(1), 30));
+        faresRepository.save(new FaresDao(2, new LocationDao(1), new SlotTypeDao(2), 50));
+        faresRepository.save(new FaresDao(3, new LocationDao(2), new SlotTypeDao(1), 20));
+        faresRepository.save(new FaresDao(4, new LocationDao(2), new SlotTypeDao(2), 40));
+        faresRepository.save(new FaresDao(5, new LocationDao(3), new SlotTypeDao(1), 40));
+        faresRepository.save(new FaresDao(6, new LocationDao(3), new SlotTypeDao(2), 70));
+        faresRepository.save(new FaresDao(7, new LocationDao(4), new SlotTypeDao(1), 20));
+        faresRepository.save(new FaresDao(8, new LocationDao(4), new SlotTypeDao(2), 40));
+        faresRepository.save(new FaresDao(9, new LocationDao(5), new SlotTypeDao(1), 30));
+        faresRepository.save(new FaresDao(10, new LocationDao(5), new SlotTypeDao(2), 60));
     }
 }

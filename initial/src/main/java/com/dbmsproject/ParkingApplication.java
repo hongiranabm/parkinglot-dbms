@@ -1,4 +1,4 @@
-package com.dbmsproject.controller;
+package com.dbmsproject;
 
 import java.util.Arrays;
 
