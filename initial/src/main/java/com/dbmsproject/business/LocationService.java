@@ -25,7 +25,7 @@ public class LocationService {
         return parkingLots;
     }
 
-    private Location convertToPojo(LocationDao parkingLotDao){
-        return new Location(parkingLotDao.getLocCode(), parkingLotDao.getArea());
+    private Location convertToPojo(LocationDao locationDao){
+        return new Location(locationDao.getLocCode(), locationDao.getArea());
     }
 }
