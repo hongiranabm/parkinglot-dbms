@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbmsproject.business.InitializationService;
 import com.dbmsproject.business.LocationService;
 import com.dbmsproject.models.Location;
+import com.dbmsproject.models.SlotTypeAndPrice;
 
 @RestController
 public class ParkingController {
@@ -36,5 +38,9 @@ public class ParkingController {
         return locationService.getParkingLots();
     }
 
+    @RequestMapping(method=RequestMethod.GET, value="/getSlotTypesAndPrice/{parking_lot_id}")
+    public List<SlotTypeAndPrice> GetSlotTypesAndPrice(){
+        return null;
+    }
 	
 }
