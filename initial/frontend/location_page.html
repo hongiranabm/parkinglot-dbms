@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location and Vehicle Type</title>
     <link rel="stylesheet" href="loc_style.css">
-    <title>LOCATION</title>
 </head>
 <body>
-    <h1>SELECT LOCATION</h1>
-    <br><br>
-    <div>
-        <p>Select the Location at which you wish to book a parking slot: </p>
-        <select> 
-            <option value="Jayanagar">Jayanagar</option>
-            <option value="Kormangala">Kormangala</option>
-            <option value="Majestic">Majestic</option>
-        </select>
-
-        <br><br>
-
-        <p>Select type of vehicle:</p>
-        <select>
-            <option value="4">4 Wheeler</option>
-            <option value="2">2 Wheeler</option>
-        </select>
-
+    <div class="location-container">
+        <h1>Location and Vehicle Type</h1>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <select id="location" name="location">
+                    <option value="default" selected disabled>Select Location</option>
+                    <option value="jayanagar">Jayanagar</option>
+                    <option value="koramangala">Koramangala</option>
+                    <option value="majestic">Majestic</option>
+                    <option value="jpnagar">JP Nagar</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="vehicle-type">Vehicle Type:</label>
+                <select id="vehicle-type" name="vehicle-type">
+                    <option value="default" selected disabled>Select Vehicle Type</option>
+                    <option value="2-wheeler">2 Wheeler</option>
+                    <option value="4-wheeler">4 Wheeler</option>
+                </select>
+            </div>
+            <button type="submit">Next</button>
+        </form>
     </div>
 </body>
 </html>
