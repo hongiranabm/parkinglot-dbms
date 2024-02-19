@@ -3,20 +3,20 @@ package com.dbmsproject.dao;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 @Entity
-public class LoginDao {
+public class UserDao {
     @Id
-    private int phone;
+    private Long phone;
     private String name;
     private String password;
 
-    public LoginDao(String name,int phone, String password){
+    public UserDao(String name,Long phone, String password){
         this.name = name;
         this.phone = phone;
         this.password = password;
 
     }
 
-    public LoginDao(){
+    public UserDao(){
 
     }
 
@@ -28,11 +28,11 @@ public class LoginDao {
         this.name = name;
     }
 
-    public int getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

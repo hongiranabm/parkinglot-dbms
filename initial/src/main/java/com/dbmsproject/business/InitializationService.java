@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 
 import com.dbmsproject.dao.FaresDao;
 import com.dbmsproject.dao.LocationDao;
+import com.dbmsproject.dao.UserDao;
 import com.dbmsproject.dao.SlotTypeDao;
 import com.dbmsproject.repositories.FaresRepository;
 import com.dbmsproject.repositories.LocationRepository;
+import com.dbmsproject.repositories.UserRepository;
 import com.dbmsproject.repositories.SlotTypeRepository;
 
 @Service
@@ -21,10 +23,24 @@ public class InitializationService {
     @Autowired
     private FaresRepository faresRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public void initialize(){
+        initLogin();
         initLocation();
         initSlotTypes();
         initFares();
+    }
+
+    private void initLogin(){
+        		
+		
+	
+        userRepository.save(new UserDao("Praksh Sinha", 9046753640L, "prakash@123"));
+        userRepository.save(new UserDao("Ria Dshpande", 7036559641L, "ria@123"));
+        userRepository.save(new UserDao("Prerana Kiran", 6572435442L, "prakash@123"));
+        userRepository.save(new UserDao("Ramesh M", 3546554231L, "prerana@123"));
     }
 
     private void initLocation(){

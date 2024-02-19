@@ -32,19 +32,19 @@ public class FaresDao {
 
     }
 
-    public LocationDao getLocCode() {
+    public LocationDao getLoc() {
         return locationDao;
     }
 
-    public void setLocCode(LocationDao locationDao) {
+    public void setLoc(LocationDao locationDao) {
         this.locationDao = locationDao;
     }
 
-    public SlotTypeDao getSlotTypeId() {
+    public SlotTypeDao getSlotType() {
         return slotTypeDao;
     }
 
-    public void setSlotTypeId(SlotTypeDao slotTypeDao) {
+    public void setSlotType(SlotTypeDao slotTypeDao) {
         this.slotTypeDao = slotTypeDao;
     }
 
