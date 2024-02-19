@@ -9,7 +9,11 @@
 <body>
     <div class="payment-container">
         <h1>Payment</h1>
-        <p>Final Amount: ₹ <!-- Add actual price here --></p>
+        <form d = "location page"
+        action="#"
+        th:action="@{/getSlotTypesAndPrices}"
+        th:object="${slotTypeAndPrice}">
+        <p>Final Amount: ₹ <span th:text="${slotTypeAndPrice.fare}"></span></p>
         <img src="QR_PAYMENT.png" alt="QR Code">
     </div>
 </body>

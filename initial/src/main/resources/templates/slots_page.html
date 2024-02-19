@@ -10,14 +10,14 @@
     <div class="location-container">
         <h1>Location and Vehicle Type</h1>
         <form d = "location page"
-        action="#"
-        th:action="@{/getSlotTypesAndPrices}"
-        th:object="${locationList}">
+        th:action="@{/payments}"
+        th:object="${slotTypesAndPricesList}">
+        <input type="hidden" name="loc-code" th:value="${slotTypesAndPricesList[0].locCode}" /> 
             <div class="form-group">
-                <label for="location">Location:</label>
-                <select id="location" name="location">
-                    <option value="default" selected disabled>Select Location</option>
-                    <option th:each="loc : ${locationList}" th:value="${loc.locCode}" th:text="${loc.area}"></option>
+                <label for="vehicle-type">Vehicle Type:</label>
+                <select id="vehicle-type" name="vehicle-type">
+                    <option value="default" selected disabled>Select Vehicle Type</option>
+                    <option th:each="slot : ${slotTypesAndPricesList}" th:value="${slot.vehType}" th:text="${slot.vehType}"></option>
                 </select>
             </div>
             <button type="submit">Next</button>

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dbmsproject.business.InitializationService;
 import com.dbmsproject.business.LocationService;
 import com.dbmsproject.business.SlotTypeAndPriceService;
-import com.dbmsproject.models.Location;
+// import com.dbmsproject.models.Location;
 import com.dbmsproject.models.SlotTypeAndPrice;
 
 @RestController
@@ -38,10 +38,10 @@ public class ParkingController {
         initializationService.initialize();
     }
 
-	@RequestMapping("/getParkingLots")
-    public List<Location> getLocCode(){
-        return locationService.getParkingLots();
-    }
+	// @RequestMapping("/getParkingLots")
+    // public List<Location> getLocCode(){
+    //     return locationService.getParkingLots();
+    // }
 
     @RequestMapping(method=RequestMethod.GET, value="/getSlotTypesAndPrice/{locCode}")
     public List<SlotTypeAndPrice> getSlotTypesAndPricesm(@PathVariable int locCode){

@@ -2,7 +2,6 @@ package com.dbmsproject.business;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,8 @@ public class SlotTypeAndPriceService {
     @Autowired
     private FaresRepository faresRepository;
     
-    public List<SlotTypeAndPrice> getSlotTypesAndPrices(int locCode) {
-        List<SlotTypeAndPrice> slotTypeAndPrices = new ArrayList<>();
+    public ArrayList<SlotTypeAndPrice> getSlotTypesAndPrices(int locCode) {
+        ArrayList<SlotTypeAndPrice> slotTypeAndPrices = new ArrayList<>();
         Iterator<FaresDao> iterator = faresRepository.findBylocCode(locCode).iterator();
 
         while(iterator.hasNext()){
@@ -27,7 +26,11 @@ public class SlotTypeAndPriceService {
         return slotTypeAndPrices;
     }
 
+    public SlotTypeAndPrice getSlotTypesAndPrices(int locCode, int vehType){
+        return getSlotTypesAndPrices(locCode).stream().filter(s -> s.getVehType() == vehType).findFirst().orElse(null);
+    }
+
     private SlotTypeAndPrice convertToPojo(FaresDao faresDao){
-        return new SlotTypeAndPrice(faresDao.getSlotType().getSlotTypeId(), faresDao.getFaresId(), faresDao.getLoc().getLocCode());
+        return new SlotTypeAndPrice(faresDao.getSlotType().getSlotTypeId(), faresDao.getSlotType().getVehType(), faresDao.getAmount(), faresDao.getLoc().getLocCode());
     }
 }

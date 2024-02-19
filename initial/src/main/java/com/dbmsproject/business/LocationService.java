@@ -1,7 +1,6 @@
 package com.dbmsproject.business;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +15,13 @@ public class LocationService {
     @Autowired
     private LocationRepository locationRepository;
 
-    public List<Location> getParkingLots() {
-        List<Location> parkingLots = new ArrayList<>();
-        Iterator<LocationDao> iterator = locationRepository.findAll().iterator();
-        while(iterator.hasNext()){
-            parkingLots.add(convertToPojo(iterator.next()));
+    public List<Location> getAllLocations(){
+        List<Location> locationList = new ArrayList<>();
+        List<LocationDao> locationDaoList = (List<LocationDao>) locationRepository.findAll();
+        for (LocationDao loc : locationDaoList){
+            locationList.add(convertToPojo(loc));
         }
-        return parkingLots;
+        return locationList;
     }
 
     private Location convertToPojo(LocationDao locationDao){
