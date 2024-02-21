@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            background-color: #333;
+        }
+
+        .btn-signup {
+            background-color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Park It Eazzy!</h1>
+    </header>
+
+    <nav>
+        <a href="/home">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2>To Book A Slot</h2>
+
+        <a href="/signup" class="btn btn-signup">Sign Up</a>
+        <a href="/login" class="btn btn-login">Log In</a>
+    </div>
+
+    <script>
+        function signup() {
+            // Replace this alert with your actual sign-up implementation
+            alert("Redirecting to Sign Up page");
+        }
+
+        function login() {
+            // Replace this alert with your actual login implementation
+            alert("Redirecting to Log In page");
+        }
+    </script>
+
+</body>
+</html>

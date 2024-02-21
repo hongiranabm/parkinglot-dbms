@@ -43,6 +43,16 @@ public class WebController {
 
     String loginId;
 
+    @GetMapping("/firstPage")
+	public String firstPage(Model model) {
+		return "first_page";
+	}
+
+    @GetMapping("/home")
+	public String home(Model model) {
+		return "first_page";
+	}
+
     @GetMapping("/signup")
 	public String signUp(Model model) {
         model.addAttribute("user", new User());
