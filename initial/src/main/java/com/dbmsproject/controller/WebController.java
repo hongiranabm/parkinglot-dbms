@@ -1,6 +1,5 @@
 package com.dbmsproject.controller;
 
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +9,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+// import com.dbmsproject.business.BookedSlotService;
 import com.dbmsproject.business.LocationService;
 // import com.dbmsproject.business.LoginService;
 import com.dbmsproject.business.NewUserService;
 import com.dbmsproject.business.SignInService;
 import com.dbmsproject.business.SlotTypeAndPriceService;
-import com.dbmsproject.models.SlotTypeAndPrice;
+import com.dbmsproject.models.BookedSlot;
 // import com.dbmsproject.dao.UserDao;
 import com.dbmsproject.models.User;
 
@@ -30,6 +30,10 @@ public class WebController {
 
     @Autowired
     private NewUserService newUserService;
+
+    // @Autowired
+    // private BookedSlotService bookedSlotService;
+    
 
     @Autowired
     private LocationService locationService;
@@ -79,6 +83,13 @@ public class WebController {
 		model.addAttribute("slotTypeAndPrice", slotTypeAndPriceService.getSlotTypesAndPrices(locCode, vehType));
         return "payment_page";
 	}
+
+    // @PostMapping("/booking")
+	// public String booking(@ModelAttribute BookedSlot bookedSlot, Model model) {
+    //     if(bookedSlotService.insertBookedSlot(bookedSlot))
+    //         return "login_page";
+	// 	return "signup_page";
+	// }
 
     // @GetMapping(path = "/chooseLocationAndSlot")
 	// public String bookSlots(Model model) {

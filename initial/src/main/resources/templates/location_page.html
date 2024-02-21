@@ -1,10 +1,140 @@
 <!DOCTYPE html>
+<style>
+     
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/back_img.jpeg');
+    background-repeat: no-repeat, repeat;
+    background-color: #cccccc;
+    background-size: cover;
+    background-position: center; 
+    backdrop-filter: blur(5px);
+}
+
+
+.location-container {
+    
+    
+    padding: 40px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased shadow */
+    text-align: center;
+    max-width: 400px; /* Set maximum width */
+    width: 100%; /* Ensure box stretches to maximum width */
+    
+}
+
+.location-content {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.location-container h1 {
+    color: #fff; /* Text color */
+    margin-bottom: 30px; /* Increased margin */
+}
+
+.form-group {
+    margin-bottom: 30px; /* Increased margin */
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Increased margin */
+    color: #000; /* Text color */
+}
+
+select {
+    width: 100%;
+    padding: 15px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+button {
+    background-color: #4a00e0;
+    color: #fff;
+    padding: 15px 30px; /* Increased padding */
+    border: none;
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8e2de2;
+}
+
+
+
+.location-container {
+   
+    background-size: cover;
+    background-position: center;
+    padding: 40px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased shadow */
+    text-align: center;
+    max-width: 400px; /* Set maximum width */
+    width: 100%; /* Ensure box stretches to maximum width */
+    background-color: #fff;
+}
+
+
+
+
+.location-container h1 {
+    color: #0f0808; /* Text color */
+    margin-bottom: 30px; /* Increased margin */
+}
+
+.form-group {
+    margin-bottom: 30px; /* Increased margin */
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Increased margin */
+    color: #000; /* Text color */
+}
+
+select {
+    width: 100%;
+    padding: 15px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+button {
+    background-color: #4a00e0;
+    color: #fff;
+    padding: 15px 30px; /* Increased padding */
+    border: none;
+    border-radius: 8px; /* Slightly rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8e2de2;
+}
+
+</style>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location and Vehicle Type</title>
-    <link rel="stylesheet" href="loc_style.css">
+    <!-- <link rel="stylesheet" href="loc_style.css"> -->
 </head>
 <body>
     <div class="location-container">
