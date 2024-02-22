@@ -11,12 +11,12 @@ public class SignInService {
     @Autowired
     private UserRepository userRepository;
     
-    public boolean logIn(Long phoneNumber, String password){
+    public String logInOrReturnError(Long phoneNumber, String password){
         UserDao user = userRepository.findById(phoneNumber).orElse(null);
 
         if (user != null && user.getPassword().equals(password))
-            return true;
+            return "";
 
-        return false;
+        return user == null ? "User does not exist!" : "Incorrect password!";
     }
 }

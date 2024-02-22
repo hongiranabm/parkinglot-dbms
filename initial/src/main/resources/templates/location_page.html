@@ -143,10 +143,14 @@ button:hover {
         action="#"
         th:action="@{/getSlotTypesAndPrices}"
         th:object="${locationList}">
+            <div th:if="${slotNotAvailableError}" style="color: red;">
+                <p th:text="${slotNotAvailableError}"></p>
+            </div>
+            <input type="hidden" name="phone" th:value="${phone}" /> 
             <div class="form-group">
                 <label for="location">Location:</label>
-                <select id="location" name="location">
-                    <option value="default" selected disabled>Select Location</option>
+                <select id="location" name="location" required>
+                    <option value="" selected disabled>Select Location</option>
                     <option th:each="loc : ${locationList}" th:value="${loc.locCode}" th:text="${loc.area}"></option>
                 </select>
             </div>

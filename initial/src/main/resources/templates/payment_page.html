@@ -62,11 +62,16 @@ button {
         <h1>Payment</h1>
         <form d = "location page"
         action="#"
-        th:action="@{/getSlotTypesAndPrices}"
-        th:object="${slotTypeAndPrice}">
-        <p>Final Amount: ₹ <span th:text="${slotTypeAndPrice.fare}"></span></p>
-        <img src="QR_PAYMENT.png" alt="QR Code">
-    <button type="submit">Next</button>
+        th:action="@{/bookSlot}"
+        th:object="${slotTypeAndPrice}"
+        method="post">
+            <input type="hidden" name="locCode" th:value="${slotTypeAndPrice.locCode}" />
+            <input type="hidden" name="slotTypeId" th:value="${slotTypeAndPrice.slotTypeId}" />
+            <input type="hidden" name="phone" th:value="${phone}" />
+            <p>Final Amount: ₹ <span th:text="${slotTypeAndPrice.fare}"></span></p>
+            <img src="QR_PAYMENT.png" alt="QR Code">
+            <button type="submit">Next</button>
+        </form>
     </div>
 </body>
 </html>

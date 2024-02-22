@@ -73,15 +73,20 @@ button:hover {
 		    th:action="@{/signin}"
 		    th:object="${user}">
             
+            <div th:if="${loginError}" style="color: red;">
+                <p th:text="${loginError}"></p>
+            </div>
+
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input type="tel" placeholder="Phone Number" th:field="*{phoneNumber}">
+                <input type="tel" placeholder="Phone Number" th:field="*{phoneNumber}" maxlength="10" pattern="\d{10}" oninvalid="setCustomValidity('Please enter a valid phone number.')" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" placeholder="Password" th:field="*{password}" />
+                <input type="password" placeholder="Password" th:field="*{password}" required>
 
             </div>
+            <p class="signup-link">Don't have an account? <a href="/signup">Sign Up</a></p>
             <button type="submit">Login</button>
         </form>
     </div>

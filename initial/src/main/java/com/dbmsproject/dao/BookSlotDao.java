@@ -1,29 +1,26 @@
 package com.dbmsproject.dao;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class BookedSlotsDao {
-    @Id
+public class BookSlotDao {
+    @Id @GeneratedValue
     private int bookingId;
     
     private int locCode;
     private int slotTypeId;
-    private int phone;
-    private int level;
+    private Long phone;
 
-    public BookedSlotsDao(int bookingId,int locCode,int slotTypeId,int phone,int level)
+    public BookSlotDao(int locCode, int slotTypeId, Long phone)
     {
-        this.bookingId = bookingId;
         this.locCode = locCode;
         this.slotTypeId = slotTypeId;
         this.phone = phone;
-        this.level = level;
-
     }
 
-    public BookedSlotsDao(){
+    public BookSlotDao(){
 
     }
 
@@ -51,21 +48,11 @@ public class BookedSlotsDao {
         this.slotTypeId = slotTypeId;
     }
 
-    public int getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-    
-
 }

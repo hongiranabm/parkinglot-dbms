@@ -64,7 +64,6 @@ button:hover {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup Page</title>
-    <!-- <link rel="stylesheet" href="login_style.css"> -->
 </head>
 <body>
     <div class="login-container">
@@ -74,6 +73,10 @@ button:hover {
 		    th:action="@{/createUser}"
 		    th:object="${user}"
             method="post">
+
+            <div th:if="${userExistsError}" style="color: red;">
+                <p th:text="${userExistsError}"></p>
+            </div>
             
             <div class="form-group">
                 <label for="name">User Name:</label>
@@ -81,14 +84,14 @@ button:hover {
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input type="tel" placeholder="Phone Number" th:field="*{phoneNumber}" required>
+                <input type="tel" placeholder="Phone Number" th:field="*{phoneNumber}" maxlength="10" pattern="\d{10}" oninvalid="setCustomValidity('Please enter a valid phone number.')" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" placeholder="Password" th:field="*{password}" required>
-
             </div>
             <button type="submit">sign up</button>
+            <p class="login-link">Already have an account? <a href="/login">Log In</a></p>
         </form>
     </div>
 </body>

@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dbmsproject.business.BookSlotService;
 // import com.dbmsproject.business.BookedSlotService;
 import com.dbmsproject.business.LocationService;
 // import com.dbmsproject.business.LoginService;
 import com.dbmsproject.business.NewUserService;
 import com.dbmsproject.business.SignInService;
 import com.dbmsproject.business.SlotTypeAndPriceService;
-import com.dbmsproject.models.BookedSlot;
+import com.dbmsproject.models.BookSlot;
+import com.dbmsproject.models.SlotTypeAndPrice;
 // import com.dbmsproject.dao.UserDao;
 import com.dbmsproject.models.User;
 
@@ -31,8 +33,8 @@ public class WebController {
     @Autowired
     private NewUserService newUserService;
 
-    // @Autowired
-    // private BookedSlotService bookedSlotService;
+    @Autowired
+    private BookSlotService bookSlotService;
     
 
     @Autowired
@@ -63,6 +65,7 @@ public class WebController {
 	public String createUser(@ModelAttribute User user, Model model) {
         if(newUserService.createNewUser(user))
             return "login_page";
+        model.addAttribute("userExistsError", "Phone number already exists!");
 		return "signup_page";
 	}
 
@@ -74,32 +77,43 @@ public class WebController {
 
     @GetMapping(path = "/signin")
 	public String signIn(@ModelAttribute User user, Model model) {
-        boolean signinSuccess = signinService.logIn(user.getPhoneNumber(),user.getPassword());
-        if (signinSuccess) {
+        String signinError = signinService.logInOrReturnError(user.getPhoneNumber(),user.getPassword());
+        if (signinError.equals("")) {
 		    model.addAttribute("locationList", locationService.getAllLocations());
+		    model.addAttribute("phone", user.getPhoneNumber());
         	return "location_page";
         }
+        model.addAttribute("loginError", signinError);
         return "login_page";
 	}
 
     @GetMapping(path = "/getSlotTypesAndPrices")
-	public String getSlots(Model model, @RequestParam("location") int locCode) {
+	public String getSlots(Model model, @RequestParam("location") int locCode, @RequestParam("phone") Long phone) {
 		model.addAttribute("slotTypesAndPricesList", slotTypeAndPriceService.getSlotTypesAndPrices(locCode));
+		model.addAttribute("phone", phone);
         return "slots_page";
 	}
 
     @GetMapping(path = "/payments")
-	public String getPrices(Model model, @RequestParam("vehicle-type") int vehType, @RequestParam("loc-code") int locCode) {
-		model.addAttribute("slotTypeAndPrice", slotTypeAndPriceService.getSlotTypesAndPrices(locCode, vehType));
+	public String getPrices(Model model, @RequestParam("vehicle-type") int vehType, @RequestParam("loc-code") int locCode, @RequestParam("phone") Long phone) {
+        SlotTypeAndPrice slotTypeAndPrice = slotTypeAndPriceService.getSlotTypesAndPrices(locCode, vehType);
+        BookSlot bookSlot = new BookSlot(locCode, slotTypeAndPrice.getSlotTypeId(), phone);
+		model.addAttribute("phone", phone);
+        if(!bookSlotService.slotAvailable(bookSlot)){
+            model.addAttribute("slotNotAvailableError", "Oops! No more required slots available...");
+		    model.addAttribute("locationList", locationService.getAllLocations());
+            return "location_page";
+        }
+		model.addAttribute("slotTypeAndPrice", slotTypeAndPrice);
         return "payment_page";
 	}
 
-    // @PostMapping("/booking")
-	// public String booking(@ModelAttribute BookedSlot bookedSlot, Model model) {
-    //     if(bookedSlotService.insertBookedSlot(bookedSlot))
-    //         return "login_page";
-	// 	return "signup_page";
-	// }
+    @PostMapping("/bookSlot")
+	public String bookSlot(Model model, @RequestParam("slotTypeId") int slotTypeId, @RequestParam("locCode") int locCode, @RequestParam("phone") Long phone) {
+        BookSlot bookSlot = new BookSlot(locCode, slotTypeId, phone);
+        bookSlotService.bookSlot(bookSlot);
+        return "last_page";
+	}
 
     // @GetMapping(path = "/chooseLocationAndSlot")
 	// public String bookSlots(Model model) {

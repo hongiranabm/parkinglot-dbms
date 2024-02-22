@@ -141,11 +141,12 @@ button:hover {
         <form d = "location page"
         th:action="@{/payments}"
         th:object="${slotTypesAndPricesList}">
-        <input type="hidden" name="loc-code" th:value="${slotTypesAndPricesList[0].locCode}" /> 
+        <input type="hidden" name="loc-code" th:value="${slotTypesAndPricesList[0].locCode}" />
+        <input type="hidden" name="phone" th:value="${phone}" />
             <div class="form-group">
                 <label for="vehicle-type">Vehicle Type:</label>
-                <select id="vehicle-type" name="vehicle-type">
-                    <option value="default" selected disabled>Select Vehicle Type</option>
+                <select id="vehicle-type" name="vehicle-type" required>
+                    <option value="" selected disabled>Select Vehicle Type</option>
                     <option th:each="slot : ${slotTypesAndPricesList}" th:value="${slot.vehType}" th:text="${slot.vehType}"></option>
                 </select>
             </div>
